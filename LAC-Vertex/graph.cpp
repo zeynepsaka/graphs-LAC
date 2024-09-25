@@ -75,10 +75,10 @@ void Graph::loadDataToStorage(const char* fileName, int policy) {
 
   
   if(policy == 1){
-    cache = new LACGCCache(data, cacheCapacity, blockSize, data->getNumNodeBlocks()); //data->getNumEdgeBlocks()
+    cache = new LACGCCache(data, cacheCapacity, blockSize, data->getNumNodeBlocks()); 
   }
   else if(policy == 2){
-    cache = new GClockCache(data, cacheCapacity, blockSize, data->getNumEdgeBlocks());
+    cache = new GClockCache(data, cacheCapacity, blockSize, data->getNumNodeBlocks());
   }
   else if(policy == 3){
     cache = new GraspGClockCache(data, cacheCapacity, blockSize, data->getNumNodeBlocks());
