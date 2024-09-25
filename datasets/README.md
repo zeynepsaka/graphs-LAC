@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4330a42fab09efa042d724531121bf3738260d28490f288dfc7c0553f48b551d
-size 28
+Download datasets from [here](https://drive.google.com/drive/folders/1UAFWucf5qvJJGeOaMtVSfSkpBb7Zwq7t?usp=drive_link).
