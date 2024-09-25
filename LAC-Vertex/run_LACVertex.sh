@@ -21,7 +21,7 @@ echo $CMDTEXT
 eval $CMDTEXT
 
 
-#Comment out for batch run and to print output in corresponding files
+#Remove comments for batch run and to print output in corresponding files
     # for query_type in 0 1 2 3 4 5
     # do
 	#     for cache_size in 2 5 10 20 30
