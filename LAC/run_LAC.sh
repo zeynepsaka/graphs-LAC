@@ -5,7 +5,6 @@ DASH=_
 #Parameters:
 vertex_file="datasets/socLJ_goNode.txt"
 edge_file="datasets/socLJ_goEdge.txt"
-
 workload_file="workloads/WorkloadTraceSocLJ500K"
 workload_size=500000
 cache_size=10
