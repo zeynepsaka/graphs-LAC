@@ -1,9 +1,9 @@
 # README
 The source code in this repository is intended to simulate an out of core graph processing where the graph is laid out in pages on disk and memory cache fetches pages on demand. The objective is to compare Locality Aware Cache Replacement Policy (LAC) against GCLOCK while running various traversal queries.
 
-First run build.sh to compile the binary.
-
-After the parameters are set in run_LAC.sh file, the simulation can be run as ./run_LAC.sh
+1. Run ./build.sh to compile binary.
+2. Set parameters in run_LACVertex.sh.
+3. The simulation can be run as ./run_LACVertex.sh
 
 ## Parameter Setting
 
