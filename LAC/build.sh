@@ -1,1 +1,2 @@
-g++ -w *.cpp -O3 -o Lac #-g
+#!/bin/bash
+g++ -w *.cpp -O3 -o Lac

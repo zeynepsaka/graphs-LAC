@@ -1,11 +1,12 @@
+#!/bin/bash
 CMD="time ./Lac"
 DASH=_
 
 #Parameters:
-vertex_file="/Users/zeynepkorkmaz/Desktop/gorderInputs/socLJ_goNode.txt"
-edge_file="/Users/zeynepkorkmaz/Desktop/gorderInputs/socLJ_goEdge.txt"
+vertex_file="datasets/socLJ_goNode.txt"
+edge_file="datasets/socLJ_goEdge.txt"
 
-workload_file="/Users/zeynepkorkmaz/Desktop/workloads/WorkloadTraceSocLJ500K"
+workload_file="workloads/WorkloadTraceSocLJ500K"
 workload_size=500000
 cache_size=10
 policy=2
