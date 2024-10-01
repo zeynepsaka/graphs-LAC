@@ -64,16 +64,16 @@ int main(int argc, char *argv[]) {
   long numMiss = graph.printStats();
 
   double totalTime = (numMiss * 0.05) + totalPolicyTime;
-  printf("total time 0.05: %f\n", totalTime);
+  printf("total time (IOlatency (ms): 0.05): %f\n", totalTime);
 
   totalTime = (numMiss * 0.15) + totalPolicyTime;
-  printf("total time 0.15: %f\n", totalTime);
+  printf("total time (IOlatency (ms): 0.15): %f\n", totalTime);
 
   totalTime = (numMiss * 0.45) + totalPolicyTime;
-  printf("total time 0.45: %f\n", totalTime);
+  printf("total time (IOlatency (ms): 0.45): %f\n", totalTime);
   
   totalTime = (numMiss * 1.35) + totalPolicyTime;
-  printf("total time 1.35: %f\n", totalTime);
+  printf("total time (IOlatency (ms): 1.35): %f\n", totalTime);
 
  
   return 0;
