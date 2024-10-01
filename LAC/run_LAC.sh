@@ -1,5 +1,5 @@
 #!/bin/bash
-CMD="time ./Lac"
+CMD="./Lac"
 DASH=_
 
 #Parameters:
