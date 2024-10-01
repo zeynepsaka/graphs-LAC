@@ -1,5 +1,5 @@
 #!/bin/bash
-CMD="time ./LacVertex"
+CMD="./LacVertex"
 DASH=_
 
 #Parameters:
