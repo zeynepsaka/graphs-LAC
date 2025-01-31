@@ -3,3 +3,5 @@ This repository is intended to simulate an out of core graph processing where th
 LAC: Simulation is on both vertex and edge pages to compare LAC against GCLOCK.
 
 LAC-Vertex: Simulation is on vertex pages only to compare LAC against GRASP.
+
+Neo4j-Cache: Embedded Neo4j application to test LAC against Neo4j's GCLOCK.
