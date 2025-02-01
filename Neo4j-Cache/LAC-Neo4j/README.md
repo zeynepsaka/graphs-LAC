@@ -1,6 +1,8 @@
 # README
 The source code in this repository is intended to run an embedded-Neo4j java application to run various queries on input graphs. 
+
 This project requires JAVA 23 or above and it is test in Ubuntu 20.04
+
 The Neo4j version is used in the project is 5.20.
 
 The folders in this reporsitory and their purposes are as follows:
@@ -13,20 +15,9 @@ The folders in this reporsitory and their purposes are as follows:
 
 **3. Neo4jLAC:** This is "/io" module of Neo4j source code with LAC implementation. (The only module is modified for now). You can download the full source code here: https://github.com/neo4j/neo4j/tree/5.20 and replace the "/community/io" module with this folder. Then, it can be build by running "mvn clean install -DskipTests -T1C -Dspotless.check.skip=true" under "/neo4j". The generated jar files can be found under "packaging/standalone/target". You can include these jar files to embedded Neo4j into the java application.
 
-**4. Neo4jEmbedded: ** This is the source code for the java application where the embedded Neo4j is created and the queries are implemented by using Java API. It requires including Neo4j libraries which can be done by including the following lines in pom.xml after Neo4j-LAC is build in (3):
+**4. Neo4jEmbedded:** This is the source code for the java application where the embedded Neo4j is created and the queries are implemented by using Java API. It requires including Neo4j libraries which can be done by including the dependencies in pom.xml after Neo4j-LAC is build in (3)
 
-<dependencies>
-        <!-- Neo4j Embedded -->
-        <dependency>
-            <groupId>org.neo4j</groupId>
-            <artifactId>neo4j</artifactId>
-            <version>5.20.0-SNAPSHOT</version>
-        </dependency>
-</dependencies>
-
-If you are using an IDE, the following line need to be added into Build and Run configurations. This is required to perform direct IO:
-
---add-opens java.base/java.nio=ALL-UNNAMED
+If you are using an IDE, the following line need to be added into Build and Run configurations. This is required to perform direct IO: **--add-opens java.base/java.nio=ALL-UNNAMED**
 
 
 ## Parameter Setting in runLAC.sh
