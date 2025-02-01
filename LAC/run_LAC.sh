@@ -2,7 +2,7 @@
 CMD="./Lac"
 DASH=_
 
-#For Twitter graph, please use workloads/WorkloadTraceSocLJ500K  workload file and set workload size 500K for FR-ALL, FR-HOT and RW queries.
+#For Twitter graph, Please set workload size 500K for FR-ALL, FR-HOT and RW queries.
 #Even small cache percentages creates large number cache pages for Twitter and results in less than 0.01 fault rates.
 #Parameters:
 vertex_file="datasets/socLJ_goNode.txt"
