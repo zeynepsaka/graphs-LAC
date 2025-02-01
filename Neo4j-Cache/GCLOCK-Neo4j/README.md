@@ -15,7 +15,7 @@ The folders in this reporsitory and their purposes are as follows:
 
 **3. Neo4jGC:** This is "/io" module of native Neo4j 5.20 source code. The only modification is disabling the background eviction thread to control the page evictions and test against LAC. You can download the full source code here: https://github.com/neo4j/neo4j/tree/5.20 and replace the "/community/io" module with this folder. Then it can be build by running "mvn clean install -DskipTests -T1C -Dspotless.check.skip=true" under the source code home directory. The generated jar files can be found under "packaging/standalone/target". You can include these jar files to embedded Neo4j into the java application.
 
-**4. Neo4jEmbedded: ** This is the source code for the java application where the embedded Neo4j is created and the queries are implemented by using Java API. It requires including Neo4j libraries which can be done by including the dependencies in pom.xml after Neo4j-LAC is build in (3):
+**4. Neo4jEmbedded:** This is the source code for the java application where the embedded Neo4j is created and the queries are implemented by using Java API. It requires including Neo4j libraries which can be done by including the dependencies in pom.xml after Neo4j-LAC is build in (3):
 
 If you are using an IDE, the following line need to be added into Build and Run configurations. This is required to perform direct IO:
 **--add-opens java.base/java.nio=ALL-UNNAMED**
