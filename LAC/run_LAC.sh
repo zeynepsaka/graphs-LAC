@@ -2,7 +2,8 @@
 CMD="./Lac"
 DASH=_
 
-
+#For Twitter graph, even small cache percentages creates large number cache pages and results in less than zero fault rates with warm cache.
+#try? -> 500K for immediate neighbourhood queries
 #Parameters:
 vertex_file="datasets/socLJ_goNode.txt"
 edge_file="datasets/socLJ_goEdge.txt"
