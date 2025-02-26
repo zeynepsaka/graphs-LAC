@@ -398,10 +398,6 @@ public class Main {
         Set<Node> startVisited = new HashSet<>();
         Set<Node> endVisited = new HashSet<>();
 
-        // Tracking - not needed if path is not out
-        Map<Node, Node> startPredecessors = new HashMap<>();
-        Map<Node, Node> endPredecessors = new HashMap<>();
-
         // Add start and end nodes to their respective queues with depth 0
         startQueue.add(new NodeDepth(startNode, 0));
         startVisited.add(startNode);
@@ -415,20 +411,19 @@ public class Main {
 
         // Bidirectional BFS
         while (!startQueue.isEmpty() && !endQueue.isEmpty()) {
-            if (bidirectionalStep(startQueue, startVisited, startPredecessors, endVisited, maxDepth)) {
+            if (bidirectionalStep(startQueue, startVisited, endVisited, maxDepth)) {
                 meetingNode = findMeetingNode(startVisited, endVisited);
                 break;
             }
 
-            if (bidirectionalStep(endQueue, endVisited, endPredecessors, startVisited, maxDepth)) {
+            if (bidirectionalStep(endQueue, endVisited, startVisited, maxDepth)) {
                 meetingNode = findMeetingNode(startVisited, endVisited);
                 break;
             }
         }
     }
 
-    private static boolean bidirectionalStep(Queue<NodeDepth> queue, Set<Node> visited,
-                                                Map<Node, Node> predecessors, Set<Node> otherVisited, int maxDepth) {
+    private static boolean bidirectionalStep(Queue<NodeDepth> queue, Set<Node> visited, Set<Node> otherVisited, int maxDepth) {
         if (!queue.isEmpty()) {
             NodeDepth current = queue.poll();
             Node currentNode = current.node;
@@ -444,7 +439,6 @@ public class Main {
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
                     neighbor.getProperty(" propID");
-                    predecessors.put(neighbor, currentNode);
                     queue.add(new NodeDepth(neighbor, currentDepth + 1));
 
                     if (otherVisited.contains(neighbor)) {
