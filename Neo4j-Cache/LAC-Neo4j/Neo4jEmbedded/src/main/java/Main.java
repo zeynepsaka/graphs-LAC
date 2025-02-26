@@ -360,19 +360,9 @@ public class Main {
                     long startTime = System.currentTimeMillis();
                     Node startNode = tx.getNodeByElementId(startInternal);
                     Node endNode = tx.getNodeByElementId(endInternal);
-                    // Perform bidirectional shortest path search
-                    //PathResult result = bidirectionalShortestPath(startNode, endNode,depth);
+                    
                     bidirectionalShortestPath(startNode, endNode,depth);
 
-                    // Print all touched nodes
-                    //System.out.println("\nTouched Nodes:");
-//                    for (Node node : result.touchedNodes) {
-//                        //node.getElementId();
-//                        //node.getAllProperties();
-//                        node.getProperty(" propID");
-//                        //System.out.println("Node ID: " + node.getElementId());
-//                        //node.getAllProperties().forEach((key, value) -> System.out.println("  Property: " + key + ", Value: " + value));
-//                    }
                     long endTime = System.currentTimeMillis();
                     long duration = endTime - startTime;
                     totalTime += duration;
@@ -435,17 +425,6 @@ public class Main {
                 break;
             }
         }
-
-//        if (meetingNode != null) {
-//            // Reconstruct the shortest path
-//            List<Node> path = reconstructPath(meetingNode, startPredecessors, endPredecessors);
-//            Set<Node> touchedNodes = new HashSet<>();
-//            //touchedNodes.addAll(startVisited);
-//            //touchedNodes.addAll(endVisited);
-//            return new PathResult(path, touchedNodes);
-//        }
-//
-//        return new PathResult(null, startVisited);
     }
 
     private static boolean bidirectionalStep(Queue<NodeDepth> queue, Set<Node> visited,
@@ -461,64 +440,6 @@ public class Main {
             }
 
             for (Relationship relationship : currentNode.getRelationships(Direction.BOTH)) {
-                Node neighbor = relationship.getOtherNode(currentNode);
-                if (!visited.contains(neighbor)) {
-                    visited.add(neighbor);
-                    neighbor.getProperty(" propID");
-                    predecessors.put(neighbor, currentNode);
-                    queue.add(new NodeDepth(neighbor, currentDepth + 1));
-
-                    if (otherVisited.contains(neighbor)) {
-                        return true; // Meeting point found
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    private static boolean bidirectionalStepOUT(Queue<NodeDepth> queue, Set<Node> visited,
-                                             Map<Node, Node> predecessors, Set<Node> otherVisited, int maxDepth) {
-        if (!queue.isEmpty()) {
-            NodeDepth current = queue.poll();
-            Node currentNode = current.node;
-            currentNode.getProperty(" propID");
-            int currentDepth = current.depth;
-
-            if (currentDepth >= maxDepth) {
-                return false;
-            }
-
-            for (Relationship relationship : currentNode.getRelationships(Direction.OUTGOING)) {
-                Node neighbor = relationship.getOtherNode(currentNode);
-                if (!visited.contains(neighbor)) {
-                    visited.add(neighbor);
-                    neighbor.getProperty(" propID");
-                    predecessors.put(neighbor, currentNode);
-                    queue.add(new NodeDepth(neighbor, currentDepth + 1));
-
-                    if (otherVisited.contains(neighbor)) {
-                        return true; // Meeting point found
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    private static boolean bidirectionalStepIN(Queue<NodeDepth> queue, Set<Node> visited,
-                                                Map<Node, Node> predecessors, Set<Node> otherVisited, int maxDepth) {
-        if (!queue.isEmpty()) {
-            NodeDepth current = queue.poll();
-            Node currentNode = current.node;
-            currentNode.getProperty(" propID");
-            int currentDepth = current.depth;
-
-            if (currentDepth >= maxDepth) {
-                return false;
-            }
-
-            for (Relationship relationship : currentNode.getRelationships(Direction.INCOMING)) {
                 Node neighbor = relationship.getOtherNode(currentNode);
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
