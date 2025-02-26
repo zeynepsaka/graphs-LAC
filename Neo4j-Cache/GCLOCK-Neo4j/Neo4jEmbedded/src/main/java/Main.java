@@ -395,7 +395,7 @@ public class Main {
         Set<Node> startVisited = new HashSet<>();
         Set<Node> endVisited = new HashSet<>();
 
-        // Maps to track predecessors for reconstructing paths
+        // Tracking - not needed if path is not out
         Map<Node, Node> startPredecessors = new HashMap<>();
         Map<Node, Node> endPredecessors = new HashMap<>();
 
